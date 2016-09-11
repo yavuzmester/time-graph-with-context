@@ -1,0 +1,28 @@
+{
+    "name": "@yavuzmester/time-graph-with-context",
+    "version": "1.0.9",
+    "main": "build/index.js",
+    "description": "time graph with context powered with react and d3",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yavuzmester/time-graph-with-context"
+    },
+    "dependencies": {
+        "react": "15.0.2",
+        "@yavuzmester/time-graph": "1.0.9",
+        "event-emitter-mixin": "0.3.5"
+    },
+    "devDependencies": {
+        "babel-cli": "6.14.0",
+        "babel-plugin-transform-react-jsx": "6.8.0",
+        "react-addons-test-utils": "15.0.2",
+        "mocha": "~3.0.1",
+        "jsdom": "9.4.2"
+    },
+    "scripts": {
+        "prepublish": "rm -rf build && mkdir build && babel --plugins transform-react-jsx index.jsx --out-file build/index.js",
+        "test": "npm install && mocha"
+    },
+    "author": "Yavuz Mester",
+    "license": "MIT"
+}
