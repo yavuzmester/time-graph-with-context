@@ -66,7 +66,7 @@ class TimeGraphWithContext extends Component {
             contextData = this.data({forContextGraph: true});
 
         return (
-            <div className="time-graph-container">
+            <div className="time-graph-with-context">
                 <TimeGraph title={title} valueAxisTitle={valueAxisTitle} divWidth={divWidth} divHeight={divHeight}
                               svgMargin={svgMargin} data={data} groups={groups} logScale={logScale} valueAxisTicksEnabled={true}/>
 

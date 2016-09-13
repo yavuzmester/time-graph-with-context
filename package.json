@@ -1,6 +1,6 @@
 {
     "name": "@yavuzmester/time-graph-with-context",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "main": "build/index.js",
     "description": "time graph with context powered with react and d3",
     "repository": {

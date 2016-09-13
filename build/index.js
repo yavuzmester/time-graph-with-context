@@ -60,7 +60,7 @@ class TimeGraphWithContext extends Component {
 
         return React.createElement(
             "div",
-            { className: "time-graph-container" },
+            { className: "time-graph-with-context" },
             React.createElement(TimeGraph, { title: title, valueAxisTitle: valueAxisTitle, divWidth: divWidth, divHeight: divHeight,
                 svgMargin: svgMargin, data: data, groups: groups, logScale: logScale, valueAxisTicksEnabled: true }),
             React.createElement(TimeGraph, { ref: "context-time-graph", divWidth: divWidth, divHeight: contextDivHeight,
