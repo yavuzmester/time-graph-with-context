@@ -8,7 +8,7 @@ const TimeGraph = require("@yavuzmester/time-graph");
 
 const propTypes = {
     title: PropTypes.string.isRequired,
-    yAxisTitle: PropTypes.string.isRequired,
+    valueAxisTitle: PropTypes.string.isRequired,
     divWidth: PropTypes.number.isRequired,
     divHeight: PropTypes.number.isRequired,
     contextDivHeight: PropTypes.number.isRequired,
@@ -31,14 +31,14 @@ const propTypes = {
             color: PropTypes.string.isRequired
         }).isRequired
     ).isRequired,
-    logaxis: PropTypes.bool.isRequired,
+    logScale: PropTypes.bool.isRequired,
     brushSelection: PropTypes.arrayOf(
         PropTypes.string
     )
 };
 
 const defaultProps = {
-    logaxis: false,
+    logScale: false,
     brushSelection: []
 };
 
@@ -61,17 +61,17 @@ class TimeGraphWithContext extends Component {
     }
 
     render() {
-        const {title, yAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, groups, logaxis, brushSelection} = this.props,
+        const {title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, groups, logScale, brushSelection} = this.props,
             data = this.data(),
             contextData = this.data({forContextGraph: true});
 
         return (
             <div className="time-graph-container">
-                <TimeGraph title={title} yAxisTitle={yAxisTitle} divWidth={divWidth} divHeight={divHeight}
-                              svgMargin={svgMargin} data={data} groups={groups} logaxis={logaxis} yAxisTicksEnabled={true}/>
+                <TimeGraph title={title} valueAxisTitle={valueAxisTitle} divWidth={divWidth} divHeight={divHeight}
+                              svgMargin={svgMargin} data={data} groups={groups} logScale={logScale} valueAxisTicksEnabled={true}/>
 
                 <TimeGraph ref="context-time-graph" divWidth={divWidth} divHeight={contextDivHeight}
-                              svgMargin={svgMargin} data={contextData} groups={groups} logaxis={logaxis} brushEnabled={true}/>
+                              svgMargin={svgMargin} data={contextData} groups={groups} logScale={logScale} brushEnabled={true}/>
             </div>
         );
     }
