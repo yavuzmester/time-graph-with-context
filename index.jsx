@@ -43,6 +43,11 @@ const defaultProps = {
 };
 
 class TimeGraphWithContext extends Component {
+    constructor(props) {
+        super(props);
+        this.onBrush = this.onBrush.bind(this);
+    }
+
     data(options={}) {
         const {forContextGraph /*: ?boolean */} = options,
             {data, brushSelection} = this.props;
@@ -83,9 +88,12 @@ class TimeGraphWithContext extends Component {
     componentDidMount() {
         const contextTimeGraph = this.contextTimeGraph();
 
-        contextTimeGraph.on("brush", e => {
-            this.emit("brush", e);
-        });
+        contextTimeGraph.on("brush", this.onBrush);
+    }
+
+    onBrush(e={} /*: object */) {
+        const {newBrushSelection} = e;
+        this.emit("brush", {newBrushSelection: newBrushSelection});
     }
 } //end of TimeGraphWithContext component def
 
