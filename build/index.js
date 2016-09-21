@@ -27,16 +27,18 @@ const propTypes = {
         id: PropTypes.string.isRequired,
         color: PropTypes.string.isRequired
     }).isRequired).isRequired,
+    groupIdsToSum: PropTypes.arrayOf(PropTypes.string.isRequired),
+    groupSumColor: PropTypes.string,
     logScale: PropTypes.bool.isRequired,
     brushSelection: PropTypes.arrayOf(PropTypes.string)
 };
 
-const defaultProps = {
-    logScale: false,
-    brushSelection: []
-};
-
 class TimeGraphWithContext extends Component {
+    constructor(props) {
+        super(props);
+        this.onBrush = this.onBrush.bind(this);
+    }
+
     data(options = {}) {
         const { forContextGraph /*: ?boolean */ } = options,
               { data, brushSelection } = this.props;
@@ -54,17 +56,21 @@ class TimeGraphWithContext extends Component {
     }
 
     render() {
-        const { title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, groups, logScale, brushSelection } = this.props,
-              data = this.data(),
+        const { title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, groups, groupIdsToSum,
+            groupSumColor, logScale, brushSelection } = this.props;
+
+        const data = this.data(),
               contextData = this.data({ forContextGraph: true });
 
         return React.createElement(
             "div",
             { className: "time-graph-with-context" },
             React.createElement(TimeGraph, { title: title, valueAxisTitle: valueAxisTitle, divWidth: divWidth, divHeight: divHeight,
-                svgMargin: svgMargin, data: data, groups: groups, logScale: logScale, valueAxisTicksEnabled: true }),
+                groupIdsToSum: groupIdsToSum, groupSumColor: groupIdsToSum, svgMargin: svgMargin, data: data,
+                groups: groups, logScale: logScale, valueAxisTicksEnabled: true }),
             React.createElement(TimeGraph, { ref: "context-time-graph", divWidth: divWidth, divHeight: contextDivHeight,
-                svgMargin: svgMargin, data: contextData, groups: groups, logScale: logScale, brushEnabled: true })
+                groupIdsToSum: groupIdsToSum, groupSumColor: groupIdsToSum, svgMargin: svgMargin, data: contextData,
+                groups: groups, logScale: logScale, brushEnabled: true })
         );
     }
 
@@ -75,9 +81,12 @@ class TimeGraphWithContext extends Component {
     componentDidMount() {
         const contextTimeGraph = this.contextTimeGraph();
 
-        contextTimeGraph.on("brush", e => {
-            this.emit("brush", e);
-        });
+        contextTimeGraph.on("brush", this.onBrush);
+    }
+
+    onBrush(e = {} /*: object */) {
+        const { newBrushSelection } = e;
+        this.emit("brush", { newBrushSelection: newBrushSelection });
     }
 } //end of TimeGraphWithContext component def
 
