@@ -12,7 +12,6 @@
     },
     "data": [
         {
-            "bucketNo": 47,
             "isoDate": "2018-12-22T00:00:00.000Z",
             "value": 10,
             "groupId": "1"
@@ -54,7 +53,5 @@
             "color": "#40E0D0"
         }
     ],
-    "logScale": false,
-    "valueAxisTicksEnabled": true,
-    "brushEnabled": true
+    "logScale": false
   }
