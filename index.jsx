@@ -66,7 +66,7 @@ class TimeGraphWithContext extends Component {
 
     render() {
         const {title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, groups, groupIdsToSum,
-            groupSumColor, logScale, brushSelection} = this.props;
+            groupSumColor, logScale} = this.props;
 
         const data = this.data(),
             contextData = this.data({forContextGraph: true});
@@ -74,11 +74,11 @@ class TimeGraphWithContext extends Component {
         return (
             <div className="time-graph-with-context">
                 <TimeGraph title={title} valueAxisTitle={valueAxisTitle} divWidth={divWidth} divHeight={divHeight}
-                    groupIdsToSum={groupIdsToSum} groupSumColor={groupIdsToSum} svgMargin={svgMargin} data={data}
+                    groupIdsToSum={groupIdsToSum} groupSumColor={groupSumColor} svgMargin={svgMargin} data={data}
                     groups={groups} logScale={logScale} valueAxisTicksEnabled={true}/>
 
                 <TimeGraph ref="context-time-graph" divWidth={divWidth} divHeight={contextDivHeight}
-                    groupIdsToSum={groupIdsToSum} groupSumColor={groupIdsToSum} svgMargin={svgMargin} data={contextData}
+                    groupIdsToSum={groupIdsToSum} groupSumColor={groupSumColor} svgMargin={svgMargin} data={contextData}
                     groups={groups} logScale={logScale} brushEnabled={true}/>
             </div>
         );
