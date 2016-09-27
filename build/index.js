@@ -27,7 +27,6 @@ const propTypes = {
         id: PropTypes.string.isRequired,
         color: PropTypes.string.isRequired
     }).isRequired).isRequired,
-    groupIdsToSum: PropTypes.arrayOf(PropTypes.string.isRequired),
     groupSumColor: PropTypes.string,
     logScale: PropTypes.bool.isRequired,
     brushSelection: PropTypes.arrayOf(PropTypes.string)
@@ -56,7 +55,7 @@ class TimeGraphWithContext extends Component {
     }
 
     render() {
-        const { title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, groups, groupIdsToSum,
+        const { title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, groups,
             groupSumColor, logScale } = this.props;
 
         const data = this.data(),
@@ -66,11 +65,11 @@ class TimeGraphWithContext extends Component {
             "div",
             { className: "time-graph-with-context" },
             React.createElement(TimeGraph, { title: title, valueAxisTitle: valueAxisTitle, divWidth: divWidth, divHeight: divHeight,
-                groupIdsToSum: groupIdsToSum, groupSumColor: groupSumColor, svgMargin: svgMargin, data: data,
-                groups: groups, logScale: logScale, valueAxisTicksEnabled: true }),
+                groupSumColor: groupSumColor, svgMargin: svgMargin, data: data, groups: groups,
+                logScale: logScale, valueAxisTicksEnabled: true }),
             React.createElement(TimeGraph, { ref: "context-time-graph", divWidth: divWidth, divHeight: contextDivHeight,
-                groupIdsToSum: groupIdsToSum, groupSumColor: groupSumColor, svgMargin: svgMargin, data: contextData,
-                groups: groups, logScale: logScale, brushEnabled: true })
+                groupSumColor: groupSumColor, svgMargin: svgMargin, data: contextData, groups: groups,
+                logScale: logScale, brushEnabled: true })
         );
     }
 
