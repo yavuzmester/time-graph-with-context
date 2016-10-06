@@ -1,6 +1,6 @@
 {
     "name": "@yavuzmester/time-graph-with-context",
-    "version": "2.0.8",
+    "version": "2.0.9",
     "main": "build/index.js",
     "description": "time graph with context powered with react and d3",
     "repository": {
@@ -13,7 +13,7 @@
         "d3": "^4.2.2"
     },
     "dependencies": {
-        "@yavuzmester/time-graph": "^2.0.6",
+        "@yavuzmester/time-graph": "^2.0.7",
         "event-emitter-mixin": "^0.3.5"
     },
     "devDependencies": {
