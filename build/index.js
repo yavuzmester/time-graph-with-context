@@ -7,8 +7,8 @@ const React = require("react"),
 const TimeGraph = require("@yavuzmester/time-graph");
 
 const propTypes = {
-    title: PropTypes.string.isRequired,
-    valueAxisTitle: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    valueAxisTitle: PropTypes.string,
     divWidth: PropTypes.number.isRequired,
     divHeight: PropTypes.number.isRequired,
     contextDivHeight: PropTypes.number.isRequired,
@@ -22,9 +22,17 @@ const propTypes = {
         isoDate: PropTypes.string.isRequired,
         value: PropTypes.number.isRequired,
         color: PropTypes.string.isRequired
-    }).isRequired).isRequired,
-    logScale: PropTypes.bool.isRequired,
+    })),
+    logScale: PropTypes.bool,
     brushSelection: PropTypes.arrayOf(PropTypes.string)
+};
+
+const defaultProps = {
+    title: "",
+    valueAxisTitle: "",
+    data: [],
+    logScale: false,
+    brushSelection: false
 };
 
 class TimeGraphWithContext extends Component {
@@ -82,5 +90,6 @@ class TimeGraphWithContext extends Component {
 } //end of TimeGraphWithContext component def
 
 TimeGraphWithContext.propTypes = propTypes;
+TimeGraphWithContext.defaultProps = defaultProps;
 
 module.exports = TimeGraphWithContext;
