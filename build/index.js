@@ -5,6 +5,7 @@ const React = require("react"),
       Component = EventEmitterMixin(React.Component),
       PropTypes = React.PropTypes;
 const TimeGraph = require("@yavuzmester/time-graph");
+const shallowEqual = require("shallowequal");
 
 const propTypes = {
     title: PropTypes.string,
@@ -86,6 +87,10 @@ class TimeGraphWithContext extends Component {
     onBrush(e = {} /*: object */) {
         const { newBrushSelection } = e;
         this.emit("brush", { newBrushSelection: newBrushSelection });
+    }
+
+    shouldComponentUpdate(nextProps /*: object */) {
+        return !shallowEqual(this.props, nextProps);
     }
 } //end of TimeGraphWithContext component def
 
