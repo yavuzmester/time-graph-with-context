@@ -10,6 +10,12 @@
         "top": 20,
         "bottom": 30
     },
+    "contextSvgMargin": {
+        "left": 110,
+        "right": 50,
+        "top": 0,
+        "bottom": 30
+    },
     "data": [
         {
             "isoDate": "2018-12-22T00:00:00.000Z",

@@ -39,7 +39,7 @@ const defaultProps = {
     valueAxisTitle: "",
     data: [],
     logScale: false,
-    brushSelection: false
+    brushSelection: []
 };
 
 class TimeGraphWithContext extends Component {
@@ -52,7 +52,7 @@ class TimeGraphWithContext extends Component {
         const { forContextGraph /*: ?boolean */ } = options,
               { data, brushSelection } = this.props;
 
-        if (forContextGraph || !brushSelection || brushSelection.length == 0) {
+        if (forContextGraph || brushSelection.length == 0) {
             return data;
         } else {
             const [start, end] = brushSelection.map(b => new Date(b));
