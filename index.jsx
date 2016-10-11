@@ -5,6 +5,7 @@ const React = require("react"),
     Component = EventEmitterMixin(React.Component),
     PropTypes = React.PropTypes;
 const TimeGraph = require("@yavuzmester/time-graph");
+const _ = require("underscore");
 const shallowEqual = require("shallowequal");
 
 const propTypes = {
@@ -102,7 +103,10 @@ class TimeGraphWithContext extends Component {
     }
 
     shouldComponentUpdate(nextProps /*: object */) {
-        return !shallowEqual(this.props, nextProps);
+        return !shallowEqual(
+            _.pick(this.props, Object.keys(propTypes)),
+            _.pick(nextProps, Object.keys(propTypes))
+        );
     }
 } //end of TimeGraphWithContext component def
 
