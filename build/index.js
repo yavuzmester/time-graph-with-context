@@ -19,6 +19,12 @@ const propTypes = {
         top: PropTypes.number.isRequired,
         bottom: PropTypes.number.isRequired
     }).isRequired,
+    contextSvgMargin: PropTypes.shape({
+        left: PropTypes.number.isRequired,
+        right: PropTypes.number.isRequired,
+        top: PropTypes.number.isRequired,
+        bottom: PropTypes.number.isRequired
+    }).isRequired,
     data: PropTypes.arrayOf(PropTypes.shape({
         isoDate: PropTypes.string.isRequired,
         value: PropTypes.number.isRequired,
@@ -59,7 +65,7 @@ class TimeGraphWithContext extends Component {
     }
 
     render() {
-        const { title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, logScale } = this.props;
+        const { title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, contextSvgMargin, logScale } = this.props;
 
         const data = this.data(),
               contextData = this.data({ forContextGraph: true });
@@ -70,7 +76,7 @@ class TimeGraphWithContext extends Component {
             React.createElement(TimeGraph, { title: title, valueAxisTitle: valueAxisTitle, divWidth: divWidth, divHeight: divHeight,
                 svgMargin: svgMargin, data: data, logScale: logScale, valueAxisTicksEnabled: true }),
             React.createElement(TimeGraph, { ref: "context-time-graph", divWidth: divWidth, divHeight: contextDivHeight,
-                svgMargin: svgMargin, data: contextData, logScale: logScale, brushEnabled: true })
+                svgMargin: contextSvgMargin, data: contextData, logScale: logScale, brushEnabled: true })
         );
     }
 
