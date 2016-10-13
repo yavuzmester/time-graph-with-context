@@ -71,7 +71,17 @@ class TimeGraphWithContext extends Component {
     }
 
     render() {
-        const {title, valueAxisTitle, divWidth, divHeight, contextDivHeight, svgMargin, contextSvgMargin, logScale} = this.props;
+        const {
+            title,
+            valueAxisTitle,
+            divWidth,
+            divHeight,
+            contextDivHeight,
+            svgMargin,
+            contextSvgMargin,
+            logScale,
+            brushSelection
+            } = this.props;
 
         const data = this.data(),
             contextData = this.data({forContextGraph: true});
@@ -82,7 +92,8 @@ class TimeGraphWithContext extends Component {
                     svgMargin={svgMargin} data={data} logScale={logScale} valueAxisTicksEnabled={true}/>
 
                 <TimeGraph ref="context-time-graph" divWidth={divWidth} divHeight={contextDivHeight}
-                    svgMargin={contextSvgMargin} data={contextData} logScale={logScale} brushEnabled={true}/>
+                    svgMargin={contextSvgMargin} data={contextData} logScale={logScale} brushEnabled={true}
+                    brushSelection={brushSelection}/>
             </div>
         );
     }
