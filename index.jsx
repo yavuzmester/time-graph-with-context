@@ -61,7 +61,7 @@ class TimeGraphWithContext extends Component {
             return data;
         }
         else {
-            const [start, end] = brushSelection.map(b => new Date(b));
+            const [start, end] = brushSelection.map(bs => new Date(bs));
 
             return data.filter(d => {
                 const date = new Date(d.isoDate);
