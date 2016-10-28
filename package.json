@@ -1,6 +1,6 @@
 {
     "name": "@yavuzmester/time-graph-with-context",
-    "version": "2.0.16",
+    "version": "2.0.19",
     "main": "build/index.js",
     "files": ["build/index.js"],
     "description": "time graph with context powered with react and d3",
@@ -16,7 +16,7 @@
         "react-dom": "^15.0.2",
         "shallowequal": "0.2.2",
         "underscore": "1.8.3",
-        "@yavuzmester/time-graph": "^2.0.12"
+        "@yavuzmester/time-graph": "^2.0.14"
     },
     "devDependencies": {
         "babel-cli": "^6.14.0",
