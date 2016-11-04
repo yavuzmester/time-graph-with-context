@@ -1,6 +1,6 @@
 {
     "name": "@yavuzmester/time-graph-with-context",
-    "version": "2.0.22",
+    "version": "2.0.23",
     "main": "build/index.js",
     "files": ["build/index.js"],
     "description": "time graph with context powered with react and d3",
@@ -10,19 +10,19 @@
         "url": "https://github.com/yavuzmester/time-graph-with-context"
     },
     "dependencies": {
-        "event-emitter-mixin": "^0.3.5",
+        "event-emitter-mixin": "0.3.5",
         "react": "^15.0.2",
         "react-dom": "^15.0.2",
         "shallowequal": "0.2.2",
         "underscore": "1.8.3",
-        "@yavuzmester/time-graph": "^2.0.16"
+        "@yavuzmester/time-graph": "2.0.17"
     },
     "devDependencies": {
         "babel-cli": "^6.14.0",
         "babel-plugin-transform-react-jsx": "^6.8.0",
-        "react-addons-test-utils": "^15.0.2",
+        "jsdom": "^9.4.2",
         "mocha": "^3.0.1",
-        "jsdom": "^9.4.2"
+        "react-addons-test-utils": "^15.0.2"
     },
     "scripts": {
         "prepublish-only": "rm -rf build && mkdir build && babel --plugins transform-react-jsx index.jsx --out-file build/index.js",
