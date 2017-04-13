@@ -4,7 +4,7 @@ const { EventEmitterMixin } = require("event-emitter-mixin");
 const React = require("react"),
       Component = EventEmitterMixin(React.Component),
       PropTypes = React.PropTypes;
-const TimeGraph = require("@yavuzmester/time-graph");
+const TimeGraph = require("@ttlabs/time-graph");
 const _ = require("underscore");
 const shallowEqual = require("shallowequal");
 

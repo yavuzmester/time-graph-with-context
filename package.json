@@ -1,5 +1,5 @@
 {
-    "name": "@yavuzmester/time-graph-with-context",
+    "name": "@ttlabs/time-graph-with-context",
     "version": "2.1.0",
     "main": "build/index.js",
     "files": ["build/index.js"],
@@ -15,7 +15,7 @@
         "react-dom": "^15.0.2",
         "shallowequal": "0.2.2",
         "underscore": "1.8.3",
-        "@yavuzmester/time-graph": "2.1.0"
+        "@ttlabs/time-graph": "2.1.0"
     },
     "devDependencies": {
         "babel-cli": "^6.14.0",

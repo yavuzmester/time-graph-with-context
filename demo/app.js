@@ -1,6 +1,6 @@
 "use strict";
 
-const TimeGraphWithContext = require("@yavuzmester/time-graph-with-context");
+const TimeGraphWithContext = require("@ttlabs/time-graph-with-context");
 const React = require("react");
 const ReactDOM = require("react-dom");
 
